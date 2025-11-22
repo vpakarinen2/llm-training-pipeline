@@ -40,6 +40,25 @@ python scripts/evaluate.py --config configs/train_example.yaml
 python scripts/evaluate.py --config configs/train_example.yaml --checkpoint configs/outputs/example_run/step_2 (checkpoint)
 ```
 
+## Config
+
+### Key Settings
+
+- `model_name`: base model identifier (e.g. `gpt2`)
+- `torch_dtype`: numeric precision (e.g. `float32`, `bf16`)
+- `train_path`, `val_path`: paths to JSONL files under `data/raw/`
+- `max_seq_length`: maximum sequence length in tokens
+- `instruction_field`, `input_field`, `output_field`: names of JSON keys to build prompts
+- `output_dir`: where checkpoints and logs are written
+- `num_epochs`, `train_batch_size`, `gradient_accumulation_steps`
+- `learning_rate`, `lr_scheduler_type`, `warmup_steps` / `warmup_ratio`
+- `logging_steps`, `save_steps`, `save_total_limit`
+- `max_eval_samples`: limit on eval set size
+- `max_new_tokens`, `temperature`, `top_p`, `top_k`, `num_beams`: for generation
+- `save_predictions`, `predictions_filename`: for writing generations
+- `seed`: random seed for reproducibility
+- `device`: `cuda`, `cpu`, or `auto`
+
 ## Author
 
 Ville Pakarinen (@vpakarinen2)
