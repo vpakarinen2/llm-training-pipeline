@@ -1,0 +1,2 @@
+{"instruction": "Translate to French", "input": "Hello world", "output": "Bonjour le monde"}
+{"instruction": "Answer briefly", "input": "What is 2+2?", "output": "4"}
