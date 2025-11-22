@@ -1,4 +1,4 @@
-"""Dataset utilities for full LLM fine-tuning."""
+"""Dataset utilities."""
 
 from __future__ import annotations
 
@@ -64,3 +64,4 @@ def collate_fn(
     tokenized["labels"] = tokenized["input_ids"].clone()
 
     return tokenized
+
