@@ -1,4 +1,4 @@
-"""Tokenizer utilities for full LLM fine-tuning."""
+"""Tokenizer utilities."""
 
 from __future__ import annotations
 
@@ -66,3 +66,4 @@ def format_example(example: Mapping[str, Any], data_cfg: DataConfig) -> str:
         return f"Instruction:\n{instruction}\n\nResponse:\n{output_text}"
 
     return str(example.get(data_cfg.text_field, ""))
+
