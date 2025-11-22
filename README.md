@@ -54,10 +54,10 @@ python scripts/evaluate.py --config configs/train_example.yaml --checkpoint conf
 - `learning_rate`, `lr_scheduler_type`, `warmup_steps` / `warmup_ratio`
 - `logging_steps`, `save_steps`, `save_total_limit`
 - `max_eval_samples`: limit on eval set size
-- `max_new_tokens`, `temperature`, `top_p`, `top_k`, `num_beams`: for generation
-- `save_predictions`, `predictions_filename`: for writing generations
+- `max_new_tokens`, `temperature`, `top_p`, `top_k`, `num_beams`: generation settings controlling the model output
+- `save_predictions`, `predictions_filename`: write out generated outputs and JSONL file name to use
 - `seed`: random seed for reproducibility
-- `device`: `cuda`, `cpu`, or `auto`
+- `device`: which hardware to run on (`cuda`, `cpu`, or `auto`)
 
 ## Author
 
