@@ -1,5 +1,9 @@
 # Full LLM Training Pipeline
 
+## Workflow
+
+#### data → config → train → evaluate → compare
+
 ## Setup
 
 ### Create Python Environment
