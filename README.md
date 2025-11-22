@@ -39,3 +39,7 @@ python scripts/evaluate.py --config configs/train_example.yaml
 
 python scripts/evaluate.py --config configs/train_example.yaml --checkpoint configs/outputs/example_run/step_2 (checkpoint)
 ```
+
+## Author
+
+Ville Pakarinen (@vpakarinen2)
