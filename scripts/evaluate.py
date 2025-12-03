@@ -22,6 +22,11 @@ _add_src_to_path()
 
 from ai_pipeline.evaluation.evaluator import Evaluator  # noqa: E402
 from ai_pipeline.config.loader import load_config  # noqa: E402
+from ai_pipeline.utils.logging import get_logger  # noqa: E402
+from ai_pipeline.utils.seed import set_seed  # noqa: E402
+
+
+logger = get_logger(__name__)
 
 
 def parse_args() -> argparse.Namespace:
@@ -48,14 +53,27 @@ def main() -> None:
     config_path = Path(args.config)
     cfg = load_config(config_path)
 
+    logger.info("Loaded config from %s", config_path)
+
+    set_seed(cfg.run.seed, cfg.run.deterministic)
+
     checkpoint_dir = Path(args.checkpoint) if args.checkpoint is not None else None
+
+    if checkpoint_dir is not None:
+        logger.info("Evaluating checkpoint at %s", checkpoint_dir)
+    else:
+        logger.info("Evaluating base model %s", cfg.model.model_name)
 
     evaluator = Evaluator(cfg, checkpoint_dir=checkpoint_dir)
     metrics = evaluator.evaluate()
 
-    print("Evaluation metrics:")
+    logger.info("Evaluation metrics:")
     pprint(metrics)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception:
+        logger.exception("Unhandled exception in evaluation script")
+        sys.exit(1)
